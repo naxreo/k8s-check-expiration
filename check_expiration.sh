@@ -5,8 +5,7 @@ if [ -z "$EXDAY" ]; then
 fi
 
 if [ -z "$WTID" ]; then
-	## mosol watchtower
-	WTID=12216
+	WTID="DEPEND ON YOUR API"
 fi
 
 
@@ -58,7 +57,8 @@ function noti_expiration() {
 
 
 function send_msg() {
-	base_url="http://api.noti.daumkakao.io/send/group/kakaotalk"
+    ## Depend on your environment
+	base_url="http://YOUR-WEBHOOK-API/send/message"
 	msg=$1
 	curl -XPOST -sL -H "Content-type: application/json" -d"{\"to\":$WTID, \"msg\":\"$1\"}" $base_url 1>/dev/null
 }
